@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class NewSpace {
-	String url="jdbc:mysql://localhost:3306/propertymgmt"; 
+	String dbuname = "emall";
+	String dbpass = "propertymanagement";
+	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
 	String sql = "insert into spaces values(?,?,?,?,?);";
 	public void create(String spaceType,String space,String duration,String rent_type,String cost)
 	{
@@ -13,7 +15,7 @@ public class NewSpace {
 		{
 			System.out.print(spaceType+" "+space+" "+duration+" "+rent_type+" "+cost);
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, spaceType);
 			st.setString(2, space);
@@ -21,7 +23,7 @@ public class NewSpace {
 			st.setString(4, rent_type);
 			st.setString(5, cost);
 			st.executeUpdate();
-			
+			con.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -38,6 +40,7 @@ public class NewSpace {
 			st.setString(1, space);
 			st.setString(2, sqrft);
 			st.executeUpdate();
+			con.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();

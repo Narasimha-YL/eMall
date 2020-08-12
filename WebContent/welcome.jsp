@@ -7,6 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome</title>
 
+<style>
+
+.effect-16{border: 0; padding: 4px 0; border-bottom: 1px solid #ccc; background-color: transparent;}
+
+
+.effect-16 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.effect-16:focus ~ .focus-border,
+.has-content.effect-16 ~ .focus-border{width: 100%; transition: 0.4s;}
+.effect-16 ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.effect-16:focus ~ label, .has-content.effect-16 ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+</style>
+
    <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
    <!-- DATE PICKER PURPOSE CSS -->
@@ -18,7 +31,7 @@
   <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/bae75bb48f.js"></script>
    
-<link rel="stylesheet" type="text/css" href="welcome.css">    
+<link rel="stylesheet" type="text/css" href="css/welcome.css">    
 
 
 <!--DATE PICKER  -->
@@ -53,6 +66,23 @@ $(function() {
 	     dateFormat: "yy-mm-dd",
 	   });
 	 });
+	 
+	 
+	 
+	 
+	 
+//JavaScript for label effects only
+$(window).load(function(){
+	$(".col-3 input").val("");
+	
+	$(".input-effect input").focusout(function(){
+		if($(this).val() != ""){
+			$(this).addClass("has-content");
+		}else{
+			$(this).removeClass("has-content");
+		}
+	})
+});
 </script>
 
 <style>
@@ -160,9 +190,18 @@ A B C Entertainment and Real Estate Pvt Ltd.
 	 
 	<div class="main" id="shopBookingdiv" style="display:none;">
 	
-		<form action="ShopBook" method="post">
+		<form action="ShopBook" method="post" autocomplete="off">
 		<div>
-			Enter customer name: <input type="text" name="customer" required/>
+		
+		
+     	
+     	<div class="col-3">
+     	Enter customer name:
+        	<input class="effect-2" type="text" name="customer" placeholder="Customer Name" required>
+            <span class="focus-border"></span>
+        </div>
+		<br>
+		<div class = "col-3">	 
 			 <p>Select Space Type:
 		        <select id="spaceType" name="spaceType">
 		        	  <option value="" disabled selected>Select Type</option>
@@ -206,6 +245,7 @@ A B C Entertainment and Real Estate Pvt Ltd.
 						 </div>
 				</div>
 				<input type="submit" name="Book" value="Book">
+			 </div>
 			 </div>
 	 </form>
 	

@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class InBetween {
-	String url="jdbc:mysql://localhost:3306/propertymgmt";
-    String dbuname="root";
-    String dbpass="root";
+	String dbuname = "emall";
+	String dbpass = "propertymanagement";
+	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
 	public int income(String start_date, String end_date)
 	{
 		int res=0;
@@ -25,6 +25,7 @@ public class InBetween {
 			{				
 				res=rs.getInt(1);
 			}
+			con.close();
 			return res;	
 		}
 		catch(Exception e)
@@ -64,6 +65,7 @@ public class InBetween {
 				res+="</tr>";
 			}
 			res+="</table>";
+			con.close();
 			return res;
 		}
 		catch(Exception e)

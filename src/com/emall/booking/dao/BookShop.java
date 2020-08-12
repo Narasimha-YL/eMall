@@ -9,14 +9,16 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class BookShop {
-	String url="jdbc:mysql://localhost:3306/propertymgmt"; 
+	String dbuname = "emall";
+	String dbpass = "propertymanagement";
+	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
 	String sql = "insert into booking(customer,space_type,space,start_date,end_date,rent,units,uid) values(?,?,?,?,?,?,?,?);" ;
 	public void shop(String customer, String spaceType, String space,String date,String days,int uid) {
 		try
 		{
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			int da = Integer.parseInt(days);  
 			
 
@@ -88,7 +90,7 @@ public class BookShop {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar c = Calendar.getInstance();
 			try{
@@ -133,7 +135,7 @@ public class BookShop {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar c = Calendar.getInstance();
 			try{
@@ -192,7 +194,7 @@ public class BookShop {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar c = Calendar.getInstance();
 			try{

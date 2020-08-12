@@ -11,9 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DashboardInfo {
-	String url="jdbc:mysql://localhost:3306/propertymgmt";
-    String dbuname="root";
-    String dbpass="root";
+	String dbuname = "emall";
+	String dbpass = "propertymanagement";
+	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	Calendar c = Calendar.getInstance();
 	public String income()
@@ -86,7 +86,8 @@ public class DashboardInfo {
 					while(rt.next())
 					{
 						s += rt.getInt(1);
-					}	
+					}
+					con.close();
 			}
 			catch (Exception e)
 			{
@@ -291,7 +292,7 @@ public class DashboardInfo {
 			}
 			System.out.println("\n\n");
 
-			
+			con.close();
 		}
 		catch(Exception e)
 		{
@@ -319,6 +320,7 @@ public class DashboardInfo {
 				res+="</tr>";
 			}
 			res+="</table>";
+			con.close();
 		}
 		catch(Exception e)
 		{

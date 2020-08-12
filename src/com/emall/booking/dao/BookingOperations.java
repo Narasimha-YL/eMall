@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class BookingOperations {
-	String url="jdbc:mysql://localhost:3306/propertymgmt";
-    String dbuname="root";
-    String dbpass="root";
+	String dbuname = "emall";
+	String dbpass = "propertymanagement";
+	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
 	
 	public int bannerValue(String type,String date)
 	{
@@ -36,6 +36,7 @@ public class BookingOperations {
 			ResultSet sr = ps.executeQuery();
 			while(sr.next())
 				max = sr.getInt(1);
+			con.close();
 		}
 		catch(Exception e)
 		{
@@ -67,7 +68,8 @@ public class BookingOperations {
 			else
 				s+="<option value='"+slots[i]+"'>"+slots[i]+ "</option>";						
 			}
-	}
+			con.close();
+		}
 		catch (SQLException | ClassNotFoundException e)
 		{
 			e.printStackTrace();
@@ -90,7 +92,8 @@ public class BookingOperations {
 			{
 				String temp = rs.getString(1);
 				s+="<option value='"+temp+"'>"+temp+"</option>";
-			}	
+			}
+			con.close();
 		}
 		catch (SQLException | ClassNotFoundException e)
 		{
@@ -197,6 +200,7 @@ public class BookingOperations {
 						}
 				}
 			}
+			con.close();
 		}
 			
 		catch (SQLException | ClassNotFoundException e)
@@ -242,6 +246,7 @@ public class BookingOperations {
 			}
 			
 			daysBetween = (int) ChronoUnit.DAYS.between(sd.toInstant(), ed.toInstant());
+			con.close();
 		}
 		catch (SQLException | ClassNotFoundException e)
 		{

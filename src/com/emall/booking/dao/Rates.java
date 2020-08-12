@@ -6,14 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Rates {
+	String dbuname = "emall";
+	String dbpass = "propertymanagement";
+	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
 	public String getRates(String space)
 	{
-		String url="jdbc:mysql://localhost:3306/propertymgmt";
+		
 		String res="";
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			String sql = "select cost from spaces where space = ? and duration = ?";
 			String duration[] = {"weekday","weekend","holiday"};
 			for(int i=0;i<3;i++)
@@ -36,18 +39,18 @@ public class Rates {
 	}
 	public String getTRates(String space)
 	{
-		String url="jdbc:mysql://localhost:3306/propertymgmt";
 		String res="";
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url,"root","root");
+			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			String sql = "select cost from spaces where space = ?";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, space);
 			ResultSet rs = st.executeQuery();
 			rs.next();
 			res+=rs.getString(1);
+			con.close();
 		}
 		catch(Exception e)
 		{
