@@ -1,0 +1,81 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.nav{	
+margin:0px;
+width:100%;
+background:#59B1CC;
+height:120px;	
+position: 0,0,fixed;
+}
+.nav h4 {
+    font-size: 28px;
+    padding: 50px 100px 20px 40px;
+    font-weight: bold;
+    font-family: serif;
+}
+#logoutsection{
+	
+}
+
+#logoutsection button{
+	    background: transparent;
+    outline: none;
+    border: 0px;
+}
+
+
+
+.sidenav {
+  float:left;
+  width: 20%;
+  height:100%;
+  z-index: 1;
+  left: 10px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenav button {
+  padding: 6px 18px 8px 6px;
+  outline:none;
+  text-decoration: none;
+  width:100%;
+  font-size: 25px;
+  color: #2196F3;
+  display: block;
+  border:0px;
+  margin:10px;
+}
+
+.sidenav button:hover {
+  color: #064579;
+}
+
+.main {
+  display:inline-block;
+  width: 75%; /* Same width as the sidebar + left position in px */
+  font-size: 14px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding: 0px 18px 6px 6px;}
+  .sidenav a {font-size: 8px;}
+  .sidenav button {font-size: 8px;}
+}
+ @media screen and (max-width: 991px) {
+  .sidenav {padding: 6px 18px 8px 6px;}
+  .sidenav a {font-size: 18px;}
+  .sidenav button {font-size: 18px;}
+}
+
