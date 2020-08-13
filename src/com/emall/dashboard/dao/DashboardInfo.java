@@ -309,7 +309,7 @@ public class DashboardInfo {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			String sql = "select user,issue from complaints;";
-			res+="<table  border=1 align='center' >";
+			res+="<table  class='table table-hover' >";
 			res+="<tr><th>Complaint By</th><th>Complaint</th></tr>";
 			PreparedStatement st= con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();

@@ -94,6 +94,24 @@ $(window).load(function(){
  
 </head>
 <body>
+
+
+<%
+response.setHeader("cache-control","no-cache, no-store, must-revalidate");//http 1.1
+
+response.setHeader("Pragma","no-cache");//http 1.0
+
+response.setHeader("Expires","0");//Proxies
+
+if(session.getAttribute("uid")==null){
+	request.setAttribute("message","session invalid");
+	response.sendRedirect("home.jsp");		
+}
+%>
+
+
+
+
 <!-- JQUERY DATE PICKER -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -160,6 +178,18 @@ A B C Entertainment and Real Estate Pvt Ltd.
 		     
 		</table>
 		</div>
+		
+		<% if(session.getAttribute("role")==null); 
+   else if(session.getAttribute("role").equals("admin")){%>
+		
+		<!-- DIV FOR COMPTLAINTS -->
+		<br>
+		<h4 class="headingfortables">Complaints</h4>
+		<div id="complaintsDiv">
+			
+		</div>
+		<%}%>
+		<br>
 		
 		<!-- DIV FOR Free SPACES OVERVIEW -->
 		<h4 class="headingfortables">Free Spaces in upcoming days</h4>
@@ -540,6 +570,14 @@ $.ajax({
 			document.getElementById("complaintsDiv").innerHTML = responseText;
 		}
 	});
+	
+$.ajax({	
+	url : 'GetComplaints',
+	success : function(responseText) {
+		document.getElementById("complaintsDiv").innerHTML = responseText;
+	}
+});	
+
 	
 });
 

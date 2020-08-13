@@ -90,10 +90,6 @@ function newSpaceFun()
 		}
 }
 
-
-
-
-
 $(document).ready(function() {
 $(document).on("change", "#rateSpaceType", function(){
 	$.ajax({
