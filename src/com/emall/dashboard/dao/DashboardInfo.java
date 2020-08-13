@@ -11,9 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DashboardInfo {
-	String dbuname = "emall";
-	String dbpass = "propertymanagement";
-	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
+	String dbuname = "root";
+	String dbpass = "root";
+	String url="jdbc:mysql://localhost:3306/propertymgmt"; 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	Calendar c = Calendar.getInstance();
 	public String income()

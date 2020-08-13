@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 public class UserRegistration {
 	public void userRegister(String name, String mailid, String pass, String phone,String pet, String city)
 	{
-		String dbuname = "emall";
-		String dbpass = "propertymanagement";
-		String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
+		String dbuname = "root";
+		String dbpass = "root";
+		String url="jdbc:mysql://localhost:3306/propertymgmt"; 
 		String sql = "insert into userdata(name,email,password,phone,pet,city) values(?,?,?,?,?,?)";
 		try
 		{

@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class NewSpace {
-	String dbuname = "emall";
-	String dbpass = "propertymanagement";
-	String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
+	String dbuname = "root";
+	String dbpass = "root";
+	String url="jdbc:mysql://localhost:3306/propertymgmt"; 
 	String sql = "insert into spaces values(?,?,?,?,?);";
 	public void create(String spaceType,String space,String duration,String rent_type,String cost)
 	{

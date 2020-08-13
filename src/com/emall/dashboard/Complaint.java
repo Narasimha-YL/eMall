@@ -21,9 +21,11 @@ public class Complaint extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String comp = request.getParameter("complaint");
-		String name="abcd";
+		String name=request.getSession().getAttribute("email").toString();
+	
 		DashboardOperations dO = new DashboardOperations();
 		dO.complaint(name, comp);
+		response.sendRedirect("welcome.jsp");
 	}
 
 }

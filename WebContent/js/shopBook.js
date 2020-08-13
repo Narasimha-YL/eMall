@@ -3,19 +3,22 @@ $(document).on("change", "#spaceType", function(){
 	var e = document.getElementById("spaceType");
 	var sh = e.options[e.selectedIndex].value;
 	if(sh == "shop"){
-		document.getElementById("daysDiv").style.display='block';
+		document.getElementById("daysDiv").style.display='flex';
+		document.getElementById("daisDiv").style.display='flex';
 		document.getElementById("atriumDiv").style.display='none';
 		document.getElementById("bannerSpace").style.display='none';}
-	else
+	else{
 		document.getElementById("daysDiv").style.display='none';
+		document.getElementById("daisDiv").style.display='flex';
+		}
 	if(sh == "atrium"){
-		document.getElementById("atriumDiv").style.display='block';
+		document.getElementById("atriumDiv").style.display='flex';
 		document.getElementById("daysDiv").style.display='none';
 		document.getElementById("bannerSpace").style.display='none';}
 	else
 		document.getElementById("atriumDiv").style.display='none';
 	if(sh=="banner"){
-		document.getElementById("bannerSpace").style.display='block';
+		document.getElementById("bannerSpace").style.display='flex';
 		document.getElementById("atriumDiv").style.display='none';
 		document.getElementById("daysDiv").style.display='none';}
 	else
@@ -24,7 +27,7 @@ $(document).on("change", "#spaceType", function(){
 	
 	$( "#sdate" ).datepicker();
 	
-	document.getElementById("date").style.display='block';
+	document.getElementById("date").style.display='flex';
 	$.ajax({
 		url : 'getSpaces',
 		data : {

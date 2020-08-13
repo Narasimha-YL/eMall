@@ -25,7 +25,8 @@ public class ShopBook extends HttpServlet {
 
 			String spaceType=request.getParameter("spaceType").toString();
 			String customer = request.getParameter("customer");
-			int uid=1;
+			int uid=Integer.parseInt(request.getSession().getAttribute("uid").toString());
+			
 			//If the requested type is shop:
 			if (spaceType.equals("shop"))
 			{

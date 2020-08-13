@@ -23,20 +23,26 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uname=request.getParameter("uname");
 		String pass=request.getParameter("pass");
+		int a = 0,u=0;
 		UserLogin dao = new UserLogin();
-		if(dao.adminCheck(uname, pass))
+		a = dao.adminCheck(uname, pass);
+		u = dao.userCheck(uname, pass);
+		
+		if( a != 0 )
 		{
 			HttpSession session = request.getSession();
-			session.setAttribute("username", uname);	
+			session.setAttribute("email", uname);	
 			session.setAttribute("role","admin");
+			session.setAttribute("uid",a);
 			response.sendRedirect("welcome.jsp");
 			
 		}
-		else if(dao.userCheck(uname, pass))
+		else if(u != 0)
 		{
 			HttpSession session = request.getSession();
-			session.setAttribute("username", uname);
+			session.setAttribute("email", uname);
 			session.setAttribute("role","user");
+			session.setAttribute("uid",u);
 			response.sendRedirect("welcome.jsp");	
 		}
 		else 

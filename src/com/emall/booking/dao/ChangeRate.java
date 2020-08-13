@@ -7,9 +7,9 @@ import java.sql.PreparedStatement;
 public class ChangeRate {
 	public void changeRate(String space, String duration, String cost)
 	{
-		String dbuname = "emall";
-		String dbpass = "propertymanagement";
-		String url="jdbc:mysql://emall.cesxmljyteso.us-east-2.rds.amazonaws.com:3306/propertymgmt"; 
+		String dbuname = "root";
+		String dbpass = "root";
+		String url="jdbc:mysql://localhost:3306/propertymgmt"; 
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
