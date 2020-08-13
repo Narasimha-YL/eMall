@@ -6,7 +6,13 @@
   <packaging>war</packaging>
   <name>eMall</name>
   <dependencies>
-    
+  
+    <dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>8.0.20</version>
+</dependency>
+
      <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
@@ -55,7 +61,6 @@
                 </execution>
             </executions>
         </plugin>
-    </plugins>
-    
+    </plugins>   
   </build>
 </project>
