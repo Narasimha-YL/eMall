@@ -13,7 +13,6 @@ public class NewSpace {
 	{
 		try
 		{
-			System.out.print(spaceType+" "+space+" "+duration+" "+rent_type+" "+cost);
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url,dbuname,dbpass);
 			PreparedStatement st = con.prepareStatement(sql);

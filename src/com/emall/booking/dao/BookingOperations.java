@@ -214,8 +214,6 @@ public class BookingOperations {
 	{
 		String s="";
 		int daysBetween = 0;
-		System.out.println(dt);
-		System.out.println(type);
 		if(dt.equals(null))
 			return 30;
 		try {

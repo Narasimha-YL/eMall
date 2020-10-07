@@ -1,47 +1,3 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 body {
   font-family: "Lato", sans-serif;
 }
@@ -49,81 +5,50 @@ body {
 .nav{	
 margin:0px;
 width:100%;
-height:100%;
-background:#cfd2d3;
+background:#59B1CC;
 height:120px;	
 position: 0,0,fixed;
 }
-
-.headingfortables{
-	    font-size: 20px;
+.nav h4 {
+    font-size: 28px;
+    padding: 50px 100px 20px 40px;
     font-weight: bold;
-    padding: 20px;
-    color: cornflowerblue;
+    font-family: serif;
 }
-
-/* input[type='submit']{
- background: #75a07a;
-    border: 0px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 2px darkseagreen;
-}
+#logoutsection{
 	
- */
-
-span{
-	font-size: 20px;
-    
-    font-family: cursive;
 }
 
-#atriumDiv{
-	padding:10px;
+#logoutsection button{
+	    background: transparent;
+    outline: none;
+    border: 0px;
 }
-#normalfont{
-	padding:5px;
-	border:1px solid skyblue;
-	font-size:18px;
-	fontfamily:serif;
-}
-#nextDiv{
-	padding-top:15px;
-}
+
+
+
 .sidenav {
-  width: 22%;
-  height:83vh; 
+  float:left;
+  width: 20%;
+  height:100%;
+  z-index: 1;
   left: 10px;
   background: #eee;
   overflow-x: hidden;
   padding: 8px 0;
 }
-#titl{
-	font-family:sans;
-    font-weight: bold;
-    padding: 15px;
-    font-size: 28px;
-    text-shadow: 1px 1px 5px lightgoldenrodyellow;
-}
-#titlename button{
-}
-
 
 .sidenav button {
-  padding: 6px 18px 14px 6px;
+  padding: 6px 18px 8px 6px;
   outline:none;
   text-decoration: none;
   width:100%;
   font-size: 25px;
-  color: #792051;
+  color: #2196F3;
   display: block;
   border:0px;
   margin:10px;
-  border-radius:50px;
-  border-bottom: 2px solid #ccc8c8;
 }
-
-  
-
 
 .sidenav button:hover {
   color: #064579;
@@ -134,90 +59,20 @@ span{
   width: 75%; /* Same width as the sidebar + left position in px */
   font-size: 14px; /* Increased text to enable scrolling */
   padding: 0px 10px;
-  text-align:center;
 }
 
-input{
-	outline:none;
-	width:auto;
-	border:0;
-	display:inline-block;
-}
-.row{
-	display:flex;
-	align-items:center;
-}
-
-#titlename{
-	display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items:center;
-}
-#titlename button:hover{
-	background-color:burlywood;
-}
-
-.row p{
-	width:50%;
-	text-align:left;
-	padding-top:20px;
-}
-.row div{
-	width:50%;
-	text-align:center;
-	padding-top:20px;
-}
-
-#changable{
-	width:75%;
-	    text-align: center;
-}
-#sidandmain{
-	display:flex;
-}
-
-option{
-	
-color:black;
-font-family:sans-serif;
-	
-}
-input,select{
-	    border: 2px solid lightblue;
-    border-radius: 6px;
-    padding: 5px;
-    margin: 10px;
-}
-select{
-	color:blue;
-}
-
- :focus{outline: none;}
 
 
-.col-3{width: 27.33%; margin: 10px 3%; } 
-/* 
-.effect-2{border: 0; padding: 7px 0; border-bottom: 1px solid #ccc;}
-  */
- 
-/* input:focus {
-margin:0px;
-padding:0px;
-	}
 
 
- */
+
+
+
 @media screen and (max-height: 450px) {
   .sidenav {padding: 0px 18px 6px 6px;}
   .sidenav a {font-size: 8px;}
   .sidenav button {font-size: 8px;}
 }
-/*  
-.effect-2 ~ .focus-border{position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
-
-.effect-2:focus ~ .focus-border{width: 100%; transition: 0.4s; left: 0;}
-  */
  @media screen and (max-width: 991px) {
   .sidenav {padding: 6px 18px 8px 6px;}
   .sidenav a {font-size: 18px;}

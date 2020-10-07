@@ -69,6 +69,7 @@ $(function() {
 	   });
 	 });
 	 
+<!-- END OF DATE PICKER -->
  
 //JavaScript for label effects only
 $(window).load(function(){
@@ -83,24 +84,18 @@ $(window).load(function(){
 	})
 });
 </script>
-
+<!--  HIDING ELEMENTS INITIALLY  -->
 <style>
-    #date,#daysDiv,#daisDiv,#bannerSpace,#atriumDiv,#shopDiv,#other,#theatreDiv,#ban,#rateTheatreDiv,#rateOther{
+    #date,#daysDiv,#daisDiv,#bannerSpace,#atriumDiv,#newShopDiv,#other,#theatreDiv,#ban,#rateTheatreDiv,#rateOther{
     display:none;
     }
-</style>
-
-
- 
+</style> 
 </head>
 <body>
-
-
+<!--  SESSIONS  -->
 <%
 response.setHeader("cache-control","no-cache, no-store, must-revalidate");//http 1.1
-
 response.setHeader("Pragma","no-cache");//http 1.0
-
 response.setHeader("Expires","0");//Proxies
 
 if(session.getAttribute("uid")==null){
@@ -110,13 +105,11 @@ if(session.getAttribute("uid")==null){
 %>
 
 
-
-
 <!-- JQUERY DATE PICKER -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
+<!-- NAVIGATION PANE  -->
 <div class="nav">
 
 <div id="titlename">
@@ -128,7 +121,7 @@ A B C Entertainment and Real Estate Pvt Ltd.
 <button class="btn" type="submit" value="Logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></button>
 </form>
 </div>
-</div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script></div>
 
 </div>
 
@@ -142,6 +135,9 @@ A B C Entertainment and Real Estate Pvt Ltd.
   
   <button class="sidnav-buttons" value="inc_rep_div" id="inc_rep"> Income Report</button>
   
+  
+ <!--  ADMIN ACTIONS  -->
+  	
    <% if(session.getAttribute("role")==null); 
    else if(session.getAttribute("role").equals("admin")){%>
   <button class="sidnav-buttons" value="reg_new_space" id="create_space"> Create New Bussiness Space</button>
@@ -179,53 +175,38 @@ A B C Entertainment and Real Estate Pvt Ltd.
 		</table>
 		</div>
 		
+		<!-- DIV FOR COMPLAINTS (ONLY VISIBLE TO ADMIN) -->
 		<% if(session.getAttribute("role")==null); 
-   else if(session.getAttribute("role").equals("admin")){%>
-		
-		<!-- DIV FOR COMPTLAINTS -->
-		<br>
+   			else if(session.getAttribute("role").equals("admin")){%>
 		<h4 class="headingfortables">Complaints</h4>
 		<div id="complaintsDiv">
-			
 		</div>
 		<%}%>
-		<br>
 		
-		<!-- DIV FOR Free SPACES OVERVIEW -->
+		<!-- DIV FOR FREE SPACES OVERVIEW -->
 		<h4 class="headingfortables">Free Spaces in upcoming days</h4>
 		<div id="freespaces">
-		
-		
-		
-		<div id="freespaces">
 		</div>
 		
-		</div>
-	
+		
 		
 	 </div>
 	 <!--END OF INITIAL LOADING  -->
 	 
 	 
-	 
+	<!-- SHOP BOOKING MODULE --> 
 	<div class="main" id="shopBookingdiv" style="display:none;">
-	<center>
+
 		<form action="ShopBook" method="post" autocomplete="off">
 		<div>
-		
-		
-     	
      	<div class="row">
      	<p >
      		<span>Enter customer name:</span>
      	</p>
-     	
      	<p>	
         	<input class="effect-2" type="text" name="customer" placeholder="Customer Name" required>
-            <!-- <span class="focus-border"></span> -->
           </p>  
         </div>
-        
 		<div class="row">	 
 		<p>
 			 <span>Select Space Type:</span>
@@ -240,84 +221,69 @@ A B C Entertainment and Real Estate Pvt Ltd.
 		        </select>
 		       </p>
 		 </div>
-		 
-			<div class="row">			 
-					<p>	<span> Select Bussiness Space:</span></p>
-					<p>
-						  <select class="btn" id = "space" name = "space">
-						  <option value="" disabled selected>Select Type</option>
+		<div class="row">			 
+				<p>	<span> Select Bussiness Space:</span></p>
+				<p>
+						 <select class="btn" id = "space" name = "space">
+						 <option value="" disabled selected>Select Type</option>
 						 </select>
-					</p>
-			</div>	
-			<div class="row" id = "date">
-			<p><span>Select Date:</span></p>
-				
-				 <p>
-				 <input type="text" id ="sdate" name="sdp" onChange="dateChange()" autocomplete="off" />
-				 </p>
-				
-			</div>
-			<div class="row" id = "daysDiv">
-		 	<p><span>Select No of days:</span></p>
-
-			  <p>
-			 <input id = "days" type = "number" name="days" max="30" placeholder="max days">
+				</p>
+		</div>	
+		<div class="row" id = "date">
+			<p><span>Select Date:</span></p>	
+			<p>
+				<input type="text" id ="sdate" name="sdp" onChange="dateChange()" autocomplete="off" />
 			</p>
-
-			 </div>
-			 <div class="row" id="daisDiv"> 
+		</div>
+		<div class="row" id = "daysDiv">
+		 	<p><span>Select No of days:</span></p>
+			<p>
+			 	<input id = "days" type = "number" name="days" max="30" placeholder="max days">
+			</p>
+		</div>
+		<div class="row" id="daisDiv"> 
 			 <p><span>Maximum days to be selected:</span></p>
 					 <p id="dais"></p>
-			 </div>
-			 
-			 <div class="row" id="atriumDiv">
-				
+		</div>
+		<div class="row" id="atriumDiv">	
 			<p><span>select slot:</span></p>
 				<p>
 				<select id = "slot" name = "slot" class="btn">
 				  <option value="" disabled selected>Select Slot</option>
 				 </select>
 				 </p>	
-			</div>
-			 <div class="row" id ="bannerSpace">
+		</div>
+		<div class="row" id ="bannerSpace">
 			<p><span>Select Sqrft :</span> </p>
 			<p>
-				<input id = "sqrft" type = "number" name="sqrft" max="30">
+				<input id = "sqrfts" type = "number" name="sqrfts" max="30">
 				 		<br>Maximum Sqrft to be selected:
 						 <div id="sqrftDiv">
 						 </div>
-			</div>
-				<input class="btn btn-outline-success" type="submit" name="Book" value="Book">
-			 </div>
-			 
-	 </form>
-	</center>
-	</div>  
-	
-	
-	<div class="main" id="reg_comp_div" style="display:none;">
-	<center>
-		<div class="row">
-		<p><span>Enter your complaint:</span></p>
-		
-		<form id="compf" action="Complaint" method="post">
-		<p>
-		 <input type="text" id ="complaint" name="complaint"/>
-		 </p>
-		 
-		</form>
-		
 		</div>
-		<br>
-		<input form="compf"  type="submit" value="Submit Complaint">
+				<input class="btn btn-outline-success" type="submit" name="Book" value="Book">
+		</div>	 
+	 </form>
+	</div>  
+	<!-- END OF SHOP BOOKING MODULE --> 
+	
+	<!-- REGISTER COMPLAINT MODULE --> 
+	<div class="main" id="reg_comp_div" style="display:none;">
+		<div class="row">
+			<p><span>Enter your complaint:</span></p>
 		
-	</center>	
+			<form id="compf" action="Complaint" method="post">
+				<p>
+		 			<input type="text" id ="complaint" name="complaint"/>
+		 		</p>
+		 		<input type="submit" value="Submit Complaint">
+			</form>
+		</div>
 	</div>
+	<!-- END OF REGISTER COMPLAINT MODULE --> 
 	
-	
-	
+	<!-- INCOME REPORT MODULE --> 
 	<div class="main" id="inc_rep_div" style="display:none;">
-	<center>
 	<div class="row">
 	<p><span>
 		Select start date:</span>
@@ -327,144 +293,122 @@ A B C Entertainment and Real Estate Pvt Ltd.
 		</p>
 	</div>
 	<div class="row">
-	<p><span>
-		Select end date:
-		</span>
-		</p>
-		<p>
-		<input type="text" id ="inc_rep_edate" name="edp" autocomplete="off" />
-		</p>
-		</div>
+		<p><span>Select end date:</span></p>
+		<p><input type="text" id ="inc_rep_edate" name="edp" autocomplete="off" /></p>
+	</div>
 		<br>
 		<button class="btn" onclick="details()" >Get Details</button>
 		<br>
 		
 	<div class="row">
-		<p>
-		<span>
-		Total income earned in given dates:
-		</span>
-		</p>
-		<p>
-		 <span id="total_income"></span>
-		 
-		 </p>
-		</div>
-		
-		<br><br>
+		<p><span>Total income earned in given dates:</span></p>
+		<p><span id="total_income"></span></p>
+	</div>
+	<br><br>
 		<b id="normalfont">Information about Bussiness Spaces booked between given dates</b>
-	
 		<div id="shops">
 		</div>
-		
-		</center>
 	</div>
 	 
+	 
+	 <!-- CREATE NEW SPACE MODULE (ADMIN ONLY) --> 
 	 <% if(session.getAttribute("role")==null); 
    else if(session.getAttribute("role").equals("admin")){%>
 	<!-- ADMIN -->
 	<div class="main" id="reg_new_space" style="display:none;">
-		<center>
 		<form action="CreateSpace" method="post">
-		
 		<div>
-					
-					 
-					 Enter Bussiness Space name: <input type="text" id = "newSpace" name="newSpace"/>
-					<br>
-					 Select Bussiness Space you want to create:
-					 <select id="newSpaceType" name="newSpaceType" class="btn" onChange="newSpaceFun()">
-					        	  <option value="" disabled selected>Select Type</option>
-					            <option value="shop" >Shop</option>
-					            <option value="atrium">Atrium</option>
-					            <option value="theatre">Theatre</option>
-					            <option value="banner">Marketing Banners</option>
-					</select>
-					<div id = "newShopDiv">
-					<table>
-					<tr>
-					<td>Weekday:</td>
-					<td>rent type:<select id="weekdaySType" name="weekdaySType" class="btn">
-					<option value="" disabled selected>Select Rent Type</option>
-					<option value="hour" >Hour</option>
-					<option value="day">Day</option>            
-					</select></td>
-					<td>cost:<input type="number" id="weekdaySCost" name="weekdaySCost"/></td></tr>
-					
-					<tr>
-					<td>Weekend:</td>
-					<td>rent type:<select id="weekendSType" name="weekendSType" class="btn">
-					<option value="" disabled selected>Select Rent Type</option>
-					<option value="hour" >Hour</option>
-					<option value="day">Day</option>            
-					</select></td>
-					<td>cost:<input type="number" id="weekendSCost" name="weekendSCost"/></td></tr>
-					
-					<tr>
-					<td>Holiday:</td>
-					<td>rent type:<select id="holidaySType" name="holidaySType" class="btn">
-					<option value="" disabled selected>Select Rent Type</option>
-					<option value="hour" >Hour</option>
-					<option value="day">Day</option>            
-					</select></td>
-					<td>cost:<input type="number" id="holidaySCost" name="holidaySCost"/></td></tr>
-					</table>
-					</div>
-					<div id="other">
-					<table>
-					<tr>
-					<td>Weekday:</td>
-					<td>cost:<input type="number" id="weekdayCost" name="weekdayCost"/></td>
-					</tr>
-					<tr>
-					<td>Weekend:</td>
-					<td>cost:<input type="number" id="weekendCost" name="weekendCost"/></td>
-					</tr>
-					<tr>
-					<td>Holiday:</td>
-					<td>cost:<input type="number" id="holidayCost" name="holidayCost"/></td>
-					</tr>
-					</table>
-					</div>
-					<div id="theatreDiv">
-					Enter cost: <input type="number" id="tCost" name="tCost"/>
-					</div>
-					<div id="ban">
-					Enter SQRFT for banner: <input type="number" id="sqrft" name="sqrft"/>
-					</div>
-					
-					<input type="submit" value="create">
-					
-					</div>
-				</form>
-	</center>			
-	</div>  
+			Enter Bussiness Space name: <input type="text" id = "newSpace" name="newSpace"/>
+			<br>
+			Select Bussiness Space you want to create:
+			<select id="newSpaceType" name="newSpaceType" class="btn" onChange="newSpaceFun()">
+				<option value="" disabled selected>Select Type</option>
+				<option value="shop" >Shop</option>
+				<option value="atrium">Atrium</option>
+				<option value="theatre">Theatre</option>
+				<option value="banner">Marketing Banners</option>
+			</select>
+			<div id = "newShopDiv">
+			<table>
+			<tr>
+			<td>Weekday:</td>
+			<td>rent type:<select id="weekdaySType" name="weekdaySType" class="btn">
+				<option value="" disabled selected>Select Rent Type</option>
+				<option value="hour" >Hour</option>
+				<option value="day">Day</option>            
+			</select></td>
+			<td>cost:<input type="number" id="weekdaySCost" name="weekdaySCost"/></td>
+			</tr>
+			<tr>
+			<td>Weekend:</td>
+			<td>rent type:<select id="weekendSType" name="weekendSType" class="btn">
+				<option value="" disabled selected>Select Rent Type</option>
+				<option value="hour" >Hour</option>
+				<option value="day">Day</option>            
+			</select></td>
+			<td>cost:<input type="number" id="weekendSCost" name="weekendSCost"/></td>
+			</tr>
+			<tr>
+			<td>Holiday:</td>
+			<td>rent type:<select id="holidaySType" name="holidaySType" class="btn">
+				<option value="" disabled selected>Select Rent Type</option>
+				<option value="hour" >Hour</option>
+				<option value="day">Day</option>            
+			</select></td>
+			<td>cost:<input type="number" id="holidaySCost" name="holidaySCost"/></td></tr>
+			</table>
+			</div>
+			<div id="other">
+			<table>
+			<tr>
+			<td>Weekday:</td>
+			<td>cost:<input type="number" id="weekdayCost" name="weekdayCost"/></td>
+			</tr>
+			<tr>
+			<td>Weekend:</td>
+			<td>cost:<input type="number" id="weekendCost" name="weekendCost"/></td>
+			</tr>
+			<tr>
+			<td>Holiday:</td>
+			<td>cost:<input type="number" id="holidayCost" name="holidayCost"/></td>
+			</tr>
+			</table>
+			</div>
+			<div id="theatreDiv">
+				Enter cost: <input type="number" id="tCost" name="tCost"/>
+			</div>
+			<div id="ban">
+				Enter SQRFT for banner: <input type="number" id="sqrft" name="sqrft"/>
+			</div>
+			<input type="submit" value="create">	
+		</div>
+	</form>
+</div>  
+<!-- END OF REGISTER COMPLAINT MODULE --> 
 
 	
-	
-	<div class="main" id="change_prices" style="display:none;">
-				<form action="ChangeRates" method="post">
-			<div class = "center">
-			
-				 <p>Select Space Type:
-			        <select id="rateSpaceType" name="rateSpaceType" class="btn">
-			        	  <option value="" disabled selected>Select Type</option>
-			            <option value="shop" >Shop</option>
-			            <option value="atrium">Atrium</option>
-			            <option value="theatre">Theatre</option>
-			            <option value="banner">Marketing Banners</option>
-			        </select>
-			 
-			 <div id = "rateSpaceDiv">
-			 Select Bussiness Space :
-			 <select id = "rateSpace" name = "rateSpace" class="btn">
-			  <option value="" disabled selected>Select Type</option>
-			 </select>
-			 </div>
+<!--CHANGE PRICES MODULE (ADMIN ONLY) --> 	
+<div class="main" id="change_prices" style="display:none;">
+	<form action="ChangeRates" method="post">
+		<div class = "center">
+			<p>Select Space Type:
+			   <select id="rateSpaceType" name="rateSpaceType" class="btn">
+			       	<option value="" disabled selected>Select Type</option>
+			        <option value="shop" >Shop</option>
+			        <option value="atrium">Atrium</option>
+			         <option value="theatre">Theatre</option>
+			         <option value="banner">Marketing Banners</option>
+			   </select>
+			<div id = "rateSpaceDiv">
+			 	Select Bussiness Space :
+			 	<select id = "rateSpace" name = "rateSpace" class="btn">
+			  		<option value="" disabled selected>Select Type</option>
+			 	</select>
+			</div>
 			 <br>
-			 <div id = "rateTheatreDiv">
+			<div id = "rateTheatreDiv">
 			 Current rate is <span id = "theatre_rate"></span>, enter new rate <input type="text" id="new_theatre" name="new_theatre"/><br>
-			 </div>
+			</div>
 			<div id= "rateOther">
 			Weekday current rate is <span id = "weekday_rate"></span>, enter new rate <input type="text" id="new_weekday" name="new_weekday"/><br>
 			Weekend current rate is <span id = "weekend_rate"></span>, enter new rate <input type="text" id="new_weekend" name="new_weekend"/><br>
@@ -472,25 +416,25 @@ A B C Entertainment and Real Estate Pvt Ltd.
 			</div>
 			 <br><br>
 			 <input type="submit" name="Update rate" value="Update rate">
-			</div>
-			 </form>
-	</div> 
+		</div>
+	</form>
+</div> 
+<!-- EBD OF CHANGE PRICES MODULE --> 
 	
-	
-	<div class="main" id="create_users" style="display:none;">
-		<form action ="Register" method="post">
+<!-- CREATE NEW USERS MODULE (ADMIN ONLY) --> 
+<div class="main" id="create_users" style="display:none;">
+	<form action ="Register" method="post">
 		<div class="row">
-		<p><span>Name:</span></p>
-		<p><input type="text" name="name" placeholder="Enter name" required>	 </p>
+			<p><span>Name:</span></p>
+			<p><input type="text" name="name" placeholder="Enter name" required></p>
 		</div>
 		<div class="row">
 		 <p><span>Type:</span></p>
 		 <p> <select id="userType" name="userType" class="btn">
-			        	  <option value="" disabled selected>Select Type</option>
-			            <option value="employee" >Employee</option>
-			            <option value="admin">Adminstrator</option>
-			  </select>
-
+			 	<option value="" disabled selected>Select Type</option>
+			    <option value="employee" >Employee</option>
+			    <option value="admin">Adminstrator</option>
+			 </select>
 		</p>
 		</div>
 		<div class="row">
@@ -498,50 +442,34 @@ A B C Entertainment and Real Estate Pvt Ltd.
 		<p> <input type="text" name="mailid" placeholder="Email ID" required/>	 </p>
 		</div>
 		<div class="row">
-		<p><span>
-		Password:
-		</span></p>
+		<p><span>Password:</span></p>
 		<p> <input type="text" name="pass" placeholder="Password" required>	</p>
 		</div>
 		<div class="row">
-		<p><span>
-		Phone:
-		</span></p>
-		<p>
-		 <input type="text" name="phone" placeholder="Phone number" required>
-		</p>
+		<p><span>Phone:</span></p>
+		<p><input type="text" name="phone" placeholder="Phone number" required></p>
 		</div>
 		<div class="row">
-		<p><span>
-		What is your favourite city / place?
-		</span></p>
-		<p>
-		 <input type="text" name="question_city" placeholder="Security Question" required></p>
+		<p><span>What is your favourite city / place?</span></p>
+		<p><input type="text" name="question_city" placeholder="Security Question" required></p>
 		 </div>
 		<div class="row">
-		<p><span>
-		What is your favourite pet name?
-		</span></p>
-		<p>
-		<input type="text" name="question_pet" placeholder="Security Question" required>
-		</p>
+		<p><span>What is your favourite pet name?</span></p>
+		<p><input type="text" name="question_pet" placeholder="Security Question" required></p>
 		</div>
-		
 		<div id = "exists"></div>
 		<br>
-		
 		<input type="submit"  name="Register" value="Register" >
 		</form>
-		
 	</div> 
 	<%} %>  
 	</div>
 	</div>
-	
+<!-- END OF NEW USER MODULE --> 
  
 <!-- SCRIPT -->
-<script src = "js/shopBook.js"></script>
-<script src = "js/app.js"></script>
+<script src = "shopBook.js"></script>
+<script src = "app.js"></script>
 <script src = "createSpace.js"></script>
 <script>
 $(document).ready(function(){
@@ -553,8 +481,7 @@ $(document).ready(function(){
 			document.getElementById("tenIncome").innerHTML = arr[0];
 			document.getElementById("monIncome").innerHTML = arr[1];
 			document.getElementById("yearIncome").innerHTML = arr[2];
-			document.getElementById("totIncome").innerHTML =arr[3];
-			
+			document.getElementById("totIncome").innerHTML =arr[3];			
 		}
 	});
 	$.ajax({
@@ -571,27 +498,7 @@ $.ajax({
 		}
 	});
 	
-$.ajax({	
-	url : 'GetComplaints',
-	success : function(responseText) {
-		document.getElementById("complaintsDiv").innerHTML = responseText;
-	}
-});	
-
-	
 });
-
-
-
-
 </script>
-
-
-<%-- <% String uid=String.valueOf(session.getAttribute("uid")); %>
-<script>
-const uid = '${uid}';
-
-</script>
- --%>
 </body>
 </html> 

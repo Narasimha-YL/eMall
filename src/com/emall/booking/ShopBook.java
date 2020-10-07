@@ -48,7 +48,7 @@ public class ShopBook extends HttpServlet {
 			{
 				String space = request.getParameter("space");
 				String date = request.getParameter("sdp");
-				int sq = Integer.parseInt(request.getParameter("sqrft"));
+				int sq = Integer.parseInt(request.getParameter("sqrfts"));
 				bs.bookBanner(customer,spaceType,space,date,sq,uid);
 				
 			}
